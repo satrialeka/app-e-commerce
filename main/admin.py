@@ -1,5 +1,7 @@
 from django.contrib import admin 
-from .models import Barang
+from .models import Sneakers
 
-# Register your models here
-admin.site.register(Barang)
+class SneakersAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'description', 'quantity')
+
+admin.site.register(Sneakers, SneakersAdmin)

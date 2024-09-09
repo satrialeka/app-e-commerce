@@ -1,6 +1,8 @@
 from django.db import models
 
-class Barang(models.Model):
+class Sneakers(models.Model):
     name = models.CharField(max_length=255)
     price = models.IntegerField()
     description = models.TextField()
+    image = models.CharField(max_length=2083)
+    quantity = models.IntegerField()

@@ -1,24 +1,48 @@
-<h1>E-Commerce koperasi</h1>
+<!-- templates/product_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Product List</h1>
+    </header>
 
-<h5>NPM: </h5>
-<p>{{ npm }}</p> <!-- Ubah sesuai dengan npm kamu -->
-<h5>Name: </h5>
-<p>{{ name }}</p> <!-- Ubah sesuai dengan nama kamu -->
-<h5>Class: </h5>
-<p>{{ class }}</p> <!-- Ubah sesuai dengan kelas kamu -->
-<table>
+    <!-- Product Listing -->
+    <section class="sneakers-listing">
+        <div class="sneakers-grid">
+            {% for sneakers in sneakers %}
+                <div class="sneakers-item">
+                    <!-- Gambar Produk -->
+                    {% if sneakers.image %}
+                        <img src="{{ sneakers.image }}" alt="{{ sneakers.name }}">
+                
+                    {% endif %}
+                    
+                    <!-- Nama Produk -->
+                    <h2>{{ sneakers.name }}</h2>
+                    
+                    <!-- Harga Produk -->
+                    <p class="price">Price: ${{ sneakers.price }}</p>
+                    <!-- Deskripsi Produk -->
+                    <p class="description">{{ sneakers.description }}</p>
 
-    
-    <tr>
-    <th>Nama Barang</th>
-    <th>Harga Barang</th>
-    <th>Deskripsi</th>
-    </tr>
-    {% for barang in list_barang %}
-    <tr>
-        <th>{{barang.name}}</th>
-        <th>{{barang.price}}</th>
-        <th>{{barang.description}}</th>
-    </tr>
-{% endfor %}
-</table>
+                    <!-- Kuantitas Produk -->
+                    <p class="quantity">Available: {{ sneakers.quantity }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 MyShop. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
