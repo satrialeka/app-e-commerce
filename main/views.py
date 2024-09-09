@@ -4,9 +4,9 @@ from .models import Barang
 def show_main(request):
     list_barang = Barang.objects.all()
     context = {
-        'npm' : '2306123456',
-        'name': 'Pak Bepe',
-        'class': 'PBP E',
+        'npm' : '2306245094',
+        'name': 'M. Satria Aleka Ramadhan',
+        'class': 'PBP C',
         'list_barang' : list_barang
     }
 
