@@ -1,17 +1,17 @@
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
 
 1.Buat proyek Django baru.
-2.Buat direktori baru bernama e-commerce-store sebagai local directory.
-3.Buat repository GitHub baru bernama e-commerce-store.
+2.Buat direktori baru bernama app-e-commerce sebagai local directory.
+3.Buat repository GitHub baru bernama app-e-commerce.
 4.Buat dan edit file README.md menggunakan VSCode.
-5.Inisialisasi Git di e-commerce-store dengan perintah:
+5.Inisialisasi Git di app-e-commerce 
 6.git init, git branch -M main, git remote add origin (link git kita), git push -u origin main.
-7.Buat virtual environment dengan python3 -m venv env dan aktifkan dengan source env/bin/activate.
+7.Buat virtual environment dengan python -m venv env dan aktifkan dengan source env/bin/activate.
 8.Buat requirements.txt dan isi dengan dependencies yang diperlukan, lalu install dengan pip install -r requirements.txt.
-9.Inisialisasi proyek Django dengan django-admin startproject app-e-commerce ..
+9.Inisialisasi proyek Django dengan django-admin startproject app-e-commerce
 10.Edit settings.py: ubah ALLOWED_HOSTS = [] menjadi ALLOWED_HOSTS = ["localhost", "127.0.0.1"].
 11.Buat file .gitignore untuk mengabaikan file yang tidak perlu ditrack Git.
-12.Buat aplikasi Django baru bernama main dengan python3 manage.py startapp main.
+12.Buat aplikasi Django baru bernama main dengan python manage.py startapp main.
 13.Tambahkan 'main' ke INSTALLED_APPS di settings.py.
 14.Buat folder templates di dalam direktori main untuk menyimpan file main.html.
 15.Buat file main.html dengan konten yang diperlukan.
@@ -19,7 +19,7 @@
 17.Buat model Item di models.py
 18.Edit views.py untuk menghubungkan Views dan Templates
 19.Edit urls.py di main
-20.update repository GitHub: git add ., git commit -m "message", git push -u origin main.
+20.update repository 
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
