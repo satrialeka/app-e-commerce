@@ -1,3 +1,5 @@
+## Tugas
+
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
 
 1.Buat proyek Django baru.
@@ -47,3 +49,36 @@ Client -> Internet -> Python/Django -> urls.py -> views.py (proses URL) -> model
 
     2. Praktik Terbaik dan Struktur yang Jelas:
     Django dirancang dengan prinsip "konvensi lebih baik daripada konfigurasi" dan "don't repeat yourself (DRY)." Ini berarti framework ini memberikan struktur proyek yang jelas dan mendorong praktik pengkodean yang baik. 
+
+
+## Tugas 3
+
+
+![xml](image.png)
+![json](image-1.png)
+![xml id](image-2.png)
+![json id](image-3.png)
+
+1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+jawab : kita memerlukannya karena data tersebut dapat digunakan antara aplikasi walaupun berbeda stack atau framework nya
+
+2.Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+jawab : menurut saya JSON lebih baik, mengapa JSON lebih popular dari XML karena XML lebih susah untuk diubah dibandingkan JSON karena JSON dapat diubah dengan mudah ke dalam JavaScript Object 
+
+3.Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+jawab : untuk mevalidasi input user pada form, kita membutuhkan method tersebut agar hasil input dari user sesuai dengan yang diinginkan ketika hendak dimasukkan ke dalam database
+
+4.Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+jawab : kita membutuhkan csrf_token karena untuk keamanan aplikasi, jika tidak menambahkan csrf_token kita tidak bisa menambahkan data dan akan menuju ke halam Forbidden (403), hal tersebut dapat dimanfaatkan oleh penyerang dengan memanipulasi csrf token agar dapat menambahkan data lain.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+jawab : langkah langkah ada di bawah ini:
+
+1. membuat file form
+2. membuat kerangka HTML agar dapat menampilkan form dan hasil data
+3. menambahkan UUID pada model
+4. membuat URL untuk menampilkan data dalam bentuk XML, JSON, XML by ID, JSON by ID
+5. menggunakan Postman untuk melihat data
+6. membuat script GitHub Actions untuk melakukan push ke PWS secara automatis
+
+
