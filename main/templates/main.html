@@ -1,48 +1,61 @@
-<!-- templates/product_list.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block meta %} 
+<title>Product List</title>
+{% endblock meta %}
+
+{% block content %}
     <!-- Header -->
     <header>
         <h1>Product List</h1>
     </header>
 
     <!-- Product Listing -->
-    <section class="sneakers-listing">
-        <div class="sneakers-grid">
-            {% for sneakers in sneakers %}
-                <div class="sneakers-item">
-                    <!-- Gambar Produk -->
-                    {% if sneakers.image %}
-                        <img src="{{ sneakers.image }}" alt="{{ sneakers.name }}">
-                
-                    {% endif %}
-                    
-                    <!-- Nama Produk -->
-                    <h2>{{ sneakers.name }}</h2>
-                    
-                    <!-- Harga Produk -->
-                    <p class="price">Price: ${{ sneakers.price }}</p>
-                    <!-- Deskripsi Produk -->
-                    <p class="description">{{ sneakers.description }}</p>
 
-                    <!-- Kuantitas Produk -->
-                    <p class="quantity">Available: {{ sneakers.quantity }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    </section>
+    {% if not sneakers %}
+    <p>Belum ada data Sneakers.</p>
+    {% else %}    
+    <table>
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Quantity</th>
+        </tr>
+      
+        {% comment %} Berikut cara memperlihatkan data mood di bawah baris ini 
+        {% endcomment %} 
+        {% for s in sneakers %}
+        <tr>
+          <td>{{s.id}}</td>
+          <td>
 
+            <img src={{s.image}}>
+            
+            
+        
+        </td>
+          <td>{{s.name}}</td>
+          <td>{{s.price}}</td>
+          <td>{{s.description}}</td>
+          <td>{{s.quantity}}</td>
+
+
+        </tr>
+        {% endfor %}
+      </table>      
+    {% endif %}
+
+    <br />
+
+    <a href="{% url 'main:create_sneakers' %}">
+    <button>Add New Sneakers</button>
+    </a>
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 MyShop. All Rights Reserved.</p>
     </footer>
 
-</body>
-</html>
+{% endblock content %}
