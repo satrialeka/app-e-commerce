@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-7_@8swso@y%&6ok9$f6cp9u!a(#tq*@d77=y*!vuep55-=@ei#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "muhammad-satria31-appecommerce.pbp.cs.ui.ac.id"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost","http://127.0.0.1","http://muhammad-satria31-appecommerce.pbp.cs.ui.ac.id", "https://muhammad-satria31-appecommerce.pbp.cs.ui.ac.id"]
 
 
 # Application definition
