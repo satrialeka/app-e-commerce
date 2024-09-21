@@ -83,4 +83,47 @@ jawab : langkah langkah ada di bawah ini:
 5. menggunakan Postman untuk melihat data
 6. membuat script GitHub Actions untuk melakukan push ke PWS secara automatis
 
+## Tugas 4
+
+1. Apa perbedaan antara HttpResponseRedirect() dan redirect()
+jawab : HttpResponseRedirect() adalah kelas Django yang digunakan untuk mengirim respons ke redirect, sedangkan redirect merupakan shortcut untuk menerima path URL, nama view, atau bahkan intance model.
+
+2. Jelaskan cara kerja penghubungan model MoodEntry dengan User!
+jawab : Model Sneakers memiliki relasi ke model User yang sudah disediakan oleh Django melalui django.contrib.auth.models.User. Biasanya ini diimplementasikan dengan menggunakan ForeignKey. ForeignKey pada Sneakers menunjuk ke model user, saat pengguna login dan mengisi entri sneakers, objek user yang sedang login diambil dari request dan simpan di kolom user dari model Sneakers
+
+3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+jawab : Authentication adalah proses memverifikasi identitas pengguna, biasanya dengan memeriksa kredensial (username dan password), sedangkan Authorization adalah proses memeriksa hak akses pengguna setelah mereka terautentikasi. Ini menentukan apakah pengguna memiliki izin untuk mengakses sumber daya tertentu.
+
+Django menggunakan middleware AuthenticationMiddleware untuk menangani proses login dan otentikasi. Ketika pengguna login, Django menyimpan informasi pengguna di session. Django menyediakan authenticate() untuk memeriksa kredensial dan login() untuk menyimpan informasi pengguna yang telah terautentikasi.
+
+4. Django menggunakan session dan cookies untuk mengingat pengguna yang login:
+    -Setelah pengguna berhasil login, Django membuat session yang menyimpan ID pengguna dalam basis data.
+    -Django mengirimkan session cookie ke browser pengguna, yang berisi kunci unik (session key). 
+    -Kunci ini digunakan untuk mengidentifikasi session pengguna di sisi server setiap kali mereka melakukan request.
+
+Cookies juga bisa digunakan untuk menyimpan data lain, seperti preferensi pengguna. Django mendukung signed cookies untuk memastikan bahwa data dalam cookies tidak dimanipulasi oleh pengguna. Tidak semua cookies aman secara default. Cookies aman adalah cookies yang dienkripsi dan hanya dapat diakses melalui HTTPS
+
+5.  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+jawab : 
+
+1. membuat fungsi dan form 
+2. buat berkas register.html
+3. membuat fungsi login
+4. import from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login
+5. buat login.html
+6. membuat fungsi logout
+7. merestriksi akses halaman main agar muncul paling awal untuk login
+8. menggunakan data cookies 
+9. hubungkan model Sneakers ke User
+10. ubah sneakers = Sneakers.objects.filter(user=request.user) agar menghubungkan object ke satu akun
+11. makemigrations dan migrate model yang ditambahkan variabel baru
+12. import os ke settings.py dan buat DEBUG = not PRODUCTION 
+11. add, commit, dan push ke github
+
+
+
+
+
+
 
