@@ -9,4 +9,4 @@ class Sneakers(models.Model):
     price = models.IntegerField()
     description = models.TextField()
     image = models.CharField(max_length=2083)
-    quantity = models.IntegerField()
+    quantity = models.IntegerField() 
