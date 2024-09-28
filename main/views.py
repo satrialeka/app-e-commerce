@@ -5,8 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, reverse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from main.forms import SneakersForm
 from main.models import Sneakers
@@ -15,6 +15,8 @@ from main.models import Sneakers
 def show_main(request):
     sneakers = Sneakers.objects.filter(user=request.user)
     context = {
+        'npm' : '2306245094',
+        'class' : 'PBP C',
         'name': request.user.username,
         'sneakers': sneakers,
         'last_login': request.COOKIES['last_login'],
@@ -85,3 +87,19 @@ def logout_user(request):
     response.delete_cookie('last_login')
     return response
 
+def edit_sneakers(request, id):
+    sneakers = Sneakers.objects.get(pk = id)
+
+    form = SneakersForm(request.POST or None, instance=sneakers)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_sneakers.html", context)
+
+def delete_sneakers(request, id):
+    sneakers = Sneakers.objects.get(pk = id)
+    sneakers.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
