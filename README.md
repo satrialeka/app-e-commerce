@@ -121,6 +121,103 @@ from django.contrib.auth import authenticate, login
 12. import os ke settings.py dan buat DEBUG = not PRODUCTION 
 11. add, commit, dan push ke github
 
+## Tugas 5
+
+1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+jawab : 
+
+    urutan prioritas CSS selector sebagai berikut:
+
+    1. inline styles: CSS yang didefinisikan langsung dalam atribut style pada elemen HTML
+
+    2. ID selectors: CSS yang menggunakan selektor ID (#id).  Ini memiliki prioritas lebih tinggi dibandingkan class dan tag.
+
+    3. Class selectors, pseudo-class selectors, dan attribute selectors: Selektor yang menggunakan class (.class), pseudo-class (:hover), atau attribute ([type="text"]). 
+
+    4. Tag selectors: Selektor yang merujuk pada elemen HTML secara langsung (div, h1, p). Ini memiliki prioritas terendah.
+
+
+2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design! 
+jawab :
+
+    - Renponsive design penting karena untuk membuat situs web agar tampak dan berfungsi dengan bagus di semua perangkat
+
+    - contoh aplikasi yang sudah menerapkan adalah twitter, youtube, instagram
+
+    - contoh aplikasi yang belum menerapkan adalah situs lama yang hanya dirancang di layar dekstop
+
+
+3.  Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut! 
+jawab : 
+
+    - margin
+        margin adalah raug di lua border elemen yang memisahkan elemen dari elemen yang lain di sekitar elemen tersebut.
+
+        contoh implementasi:
+            div {
+                margin: 20px;
+            }
+
+    - border
+        border adalah garis di sekeliling elemen yang terletak antara padding dan margin dan bisa berupa garis solid, dotted, dsb.
+
+        contoh implementasi:
+            div {
+                border: 2px solid black;
+            }
+
+    - padding
+        padding adalah ruang di dalam elemen, antara konten dan border dan dapat menambahkan jarak antara konten dan batas dalam elemen.
+
+        contoh implementasi:
+            div {
+                padding: 10px;
+            }
+
+
+4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+jawab:
+
+    - Flexbox
+        Flexbox digunakan untuk menyusun elemen secara satu dimensi dan sangat berguna untuk membuat layout yang renponsif dan fleksibel, terutama untuk menyusun yang perlu dibuat secara dinamis
+
+        kegunaan:
+            lebih cocok untuk layout yang sederhana dan satu dimensi, seperti membuat navigasi dll
+
+    - Grid layout
+        Grid layout digunakan untuk menyusun elemen secara dua dimensi dan memungkinkan mengontrol dengan lebih baik terhadap baris dan kolom.
+
+        kegunaan:
+            cocok untuk layout yang lebih kompleks dengan struktur baris dan kolom.
+
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step
+jawab :
+
+1. menambahkan Tailwind atau Bootsrap ke aplikasi di bagian base.html
+2. tambahkan viewport
+3. menambahkan fitur edit Sneakers
+4. buat berkas edit_sneakers.html
+5. tambahkan path di url
+6. tambah path edit mood ke main.html
+7. tambahkan fitur hapus Sneakers
+8. tambahkan path di url
+9. tambah path hapus Sneakers ke main.htmlm
+10. menambahkan navigation bar pada aplikasi
+11. buat berkas navbar.html
+12. konfigurasi statis files pada aplikasi
+13. menambahkan style pada aplikasi dengan tailwind dan eksternal CSS
+14. tambahkan global.css
+15. hubungkan global.css dan script tailwind ke base.html
+16. menambahkan custom styling ke global.css
+17. styling halam login, register, home, create Sneakers, edit Sneakers
+18. add, commit, dan push ke git dan pws
+
+
+    
+
+
+
 
 
 
