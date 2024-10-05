@@ -10,15 +10,16 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from main.forms import SneakersForm
 from main.models import Sneakers
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from django.utils.html import strip_tags
 
 @login_required(login_url='/login')
 def show_main(request):
-    sneakers = Sneakers.objects.filter(user=request.user)
     context = {
         'npm' : '2306245094',
         'class' : 'PBP C',
         'name': request.user.username,
-        'sneakers': sneakers,
         'last_login': request.COOKIES['last_login'],
     }
 
@@ -38,11 +39,11 @@ def create_sneakers(request):
     return render(request, "create_sneakers.html", context)
 
 def show_xml(request):
-    data = Sneakers.objects.all()
+    data = Sneakers.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = Sneakers.objects.all()
+    data = Sneakers.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_xml_by_id(request, id):
@@ -66,20 +67,22 @@ def register(request):
     return render(request, 'register.html', context)
 
 def login_user(request):
-   if request.method == 'POST':
-      form = AuthenticationForm(data=request.POST)
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
 
-      if form.is_valid():
-        user = form.get_user()
-        login(request, user)
-        response = HttpResponseRedirect(reverse("main:show_main"))
-        response.set_cookie('last_login', str(datetime.datetime.now()))
-        return response
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            response = HttpResponseRedirect(reverse("main:show_main"))
+            response.set_cookie('last_login', str(datetime.datetime.now()))
+            return response
+        else:
+            messages.error(request, "Invalid username or password. Please try again.")
 
-   else:
-      form = AuthenticationForm(request)
-   context = {'form': form}
-   return render(request, 'login.html', context)
+    else:
+        form = AuthenticationForm(request)
+    context = {'form': form}
+    return render(request, 'login.html', context)
 
 def logout_user(request):
     logout(request)
@@ -103,3 +106,22 @@ def delete_sneakers(request, id):
     sneakers = Sneakers.objects.get(pk = id)
     sneakers.delete()
     return HttpResponseRedirect(reverse('main:show_main'))
+
+@csrf_exempt
+@require_POST
+def add_sneakers_entry_ajax(request):
+    name = strip_tags(request.POST.get("name")) 
+    price= strip_tags(request.POST.get("price"))
+    description = strip_tags(request.POST.get("description"))
+    quantity = strip_tags(request.POST.get("quantity"))
+    
+    user = request.user
+
+    new_sneakers = Sneakers(
+        name=name, price=price,
+        description=description, quantity = quantity,
+        user=user
+    )
+    new_sneakers.save()
+
+    return HttpResponse(b"CREATED", status=201)

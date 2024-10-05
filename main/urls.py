@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import show_main, create_sneakers, show_xml, show_json, show_xml_by_id, show_json_by_id, register, login_user, logout_user, edit_sneakers, delete_sneakers
+from main.views import show_main, create_sneakers, show_xml, show_json, show_xml_by_id, show_json_by_id, register, login_user, logout_user, edit_sneakers, delete_sneakers, add_sneakers_entry_ajax
 
 
 
@@ -16,6 +16,7 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
-    path('edit-mood/<uuid:id>', edit_sneakers, name='edit_sneakers'),
+    path('edit-sneakers/<uuid:id>', edit_sneakers, name='edit_sneakers'),
     path('delete/<uuid:id>', delete_sneakers, name='delete_sneakers'),
+    path('create-ajax', add_sneakers_entry_ajax, name='add_sneakers_entry_ajax'),
 ]

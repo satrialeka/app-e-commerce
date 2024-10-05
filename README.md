@@ -214,7 +214,33 @@ jawab :
 18. add, commit, dan push ke git dan pws
 
 
-    
+## Tugas 6
+1. Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+jawab : maanfaat dari JavaScript dapat membuat halaman web menjadi lebih interaktif dan dinamis dengan menambahkan elemen-elemen seperti animasi, dropdown menu, dan slide show, implementasi AJAX
+
+
+2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+jawab : fungsi await ketika kita menggunakan fetch() untuk menunggu hasil proses fetch() selesai terlebih dahulu kemudian baru bisa menjalankan program selanjutnya
+        jika tidak menggunakan await maka program akan berjalan secara sinkronus dan menyebabkan program selanjutnya tidak dapat berjalan karena bisa jadi fetch belum selesai
+
+3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+jawab: kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST untuk keamanan ketika melakukan method "POST"
+
+4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+jawab : untuk pengamanan yang lebih kuat, pembersihan data input di backend berguna untuk ketika user memanipulasi data atau mengisi form tidak akan terjadi Cross Site Scripting atau XSS.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+jawab : 
+
+1. membuat fungsi AJAX untuk menambahkan add_sneakers
+2. menambahkan data sneakers dengan fetch API 
+3. membuat modal form untuk menambahkan sneakers
+4. manambahkan data sneakers dengan AJAX
+5. mengimplementasikan Strip Tags untuk menghindari Cross Site Scripting atau XSS
+6. membersihkan data menggunakan DOMPurify
+
+
+
 
 
 
